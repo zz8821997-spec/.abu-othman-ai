@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>أبو عثمان AI</title>
+<style>
+body{margin:0;background:#101522;color:white;font-family:Arial;text-align:center}
+header{background:#192338;padding:25px}
+h1{color:#55d6be}
+main{padding:25px}
+input{padding:15px;width:65%;border-radius:10px}
+button{padding:15px;background:#55d6be;border:0;border-radius:10px}
+#answer{margin:25px;padding:20px;background:#26354c;border-radius:12px}
+</style>
+</head>
+<body>
+<header>
+<h1>أبو عثمان AI</h1>
+<p>مساعدك الذكي إلى عالم المعرفة والإبداع</p>
+</header>
+<main>
+<h2>أهلاً بك في أبو عثمان AI</h2>
+<p>اكتب سؤالك هنا</p>
+<input id="question" placeholder="اكتب سؤالك">
+<button onclick="ask()">إرسال</button>
+<div id="answer">مرحباً بك! أنا أبو عثمان AI.</div>
+</main>
+<script>
+function ask(){
+let q=document.getElementById("question").value;
+document.getElementById("answer").innerText=
+"شكراً على سؤالك: "+q+" سيتم تفعيل الذكاء الاصطناعي الحقيقي بعد ربط الخدمة.";
+}
+</script>
+</body>
+</html>
