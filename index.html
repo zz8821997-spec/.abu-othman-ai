@@ -1,1 +1,152 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أبو عثمان AI</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6fb;color:#17243a}
+header{background:#142c49;color:white;padding:25px 18px;border-radius:0 0 22px 22px}
+header h1{margin:0 0 10px;font-size:27px}
+header p{color:#dce8f5}
+main{padding:18px;max-width:700px;margin:auto}
+.card{background:white;padding:18px;border-radius:16px;margin:13px 0;box-shadow:0 3px 12px #0000000b}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{background:white;padding:17px 10px;border-radius:15px;text-align:center;border:1px solid #e4eaf2;cursor:pointer}
+.tile span{font-size:28px}
+.tile h3{margin:9px 0 5px}
+button{background:#1769aa;color:white;border:0;border-radius:10px;padding:12px 18px;cursor:pointer;font-size:15px}
+textarea,input{width:100%;padding:13px;border:1px solid #ccd5e0;border-radius:10px;font-size:16px;margin:8px 0}
+.section{display:none}
+.section.active{display:block}
+.small{color:#65748a;font-size:14px}
+footer{text-align:center;color:#718096;padding:25px}
+</style>
+</head>
+<body>
+<header>
+<h1>🤖 أبو عثمان AI</h1>
+<p>مساعدك الذكي للتعلم والإبداع كل يوم</p>
+<button onclick="show('home')">الرئيسية</button>
+</header>
+
+<main>
+<div id="home" class="section active">
+<div class="card">
+<h2>أهلاً بك في أبو عثمان AI 👋</h2>
+<p>ماذا تريد أن تفعل اليوم؟</p>
+</div>
+
+<div class="grid">
+<div class="tile" onclick="show('study')">
+<span>📚</span><h3>شرح الدروس</h3>
+<p class="small">افهم دروسك بسهولة</p>
+</div>
+<div class="tile" onclick="show('summary')">
+<span>📝</span><h3>تلخيص الدروس</h3>
+<p class="small">اختصر المعلومات</p>
+</div>
+<div class="tile" onclick="show('quiz')">
+<span>🎯</span><h3>الاختبارات</h3>
+<p class="small">اختبر معلوماتك</p>
+</div>
+<div class="tile" onclick="show('cyber')">
+<span>🛡️</span><h3>الأمن السيبراني</h3>
+<p class="small">تعلم الحماية الرقمية</p>
+</div>
+</div>
+
+<div class="card">
+<h3>🌟 أكاديمية أبو عثمان AI</h3>
+<p>تعلم يومياً، راجع دروسك، واكتشف مهارات جديدة.</p>
+<button onclick="show('study')">ابدأ التعلم</button>
+</div>
+</div>
+
+<div id="study" class="section">
+<div class="card">
+<h2>📚 شرح الدروس</h2>
+<p>اكتب سؤالك أو الدرس الذي تريد فهمه:</p>
+<textarea id="lesson" rows="5" placeholder="اكتب الدرس هنا..."></textarea>
+<button onclick="explain()">اشرح لي</button>
+<div id="answer"></div>
+</div>
+<button onclick="show('home')">العودة للرئيسية</button>
+</div>
+
+<div id="summary" class="section">
+<div class="card">
+<h2>📝 الملخص الذكي</h2>
+<p>ضع نص الدرس هنا:</p>
+<textarea id="notes" rows="6" placeholder="الصق الدرس هنا..."></textarea>
+<button onclick="summarize()">تلخيص النص</button>
+<div id="summaryResult"></div>
+</div>
+<button onclick="show('home')">العودة للرئيسية</button>
+</div>
+
+<div id="quiz" class="section">
+<div class="card">
+<h2>🎯 اختبار اليوم</h2>
+<p>ما المقصود بالأمن السيبراني؟</p>
+<div>
+<label><input type="radio" name="q" value="0"> صناعة الألعاب</label>
+<label><input type="radio" name="q" value="1"> حماية الأنظمة والمعلومات الرقمية</label>
+<label><input type="radio" name="q" value="0"> تصميم الصور</label>
+</div>
+<button onclick="checkQuiz()">تصحيح الإجابة</button>
+<div id="quizResult"></div>
+</div>
+<button onclick="show('home')">العودة للرئيسية</button>
+</div>
+
+<div id="cyber" class="section">
+<div class="card">
+<h2>🛡️ مدرسة الأمن السيبراني</h2>
+<h3>الدرس الأول: حماية حساباتك</h3>
+<p>1. استخدم كلمة مرور قوية وفريدة.</p>
+<p>2. فعّل المصادقة الثنائية.</p>
+<p>3. لا تفتح الروابط المشبوهة.</p>
+<p>4. لا تشارك رموز التحقق مع أحد.</p>
+<h3>اختبر نفسك</h3>
+<p>هل من الآمن إرسال كلمة مرورك لشخص غريب؟</p>
+<button onclick="document.getElementById('cyberAnswer').innerText='أحسنت! لا تشارك كلمة مرورك مع أي شخص.'">لا، هذا غير آمن</button>
+<p id="cyberAnswer"></p>
+</div>
+<button onclick="show('home')">العودة للرئيسية</button>
+</div>
+</main>
+
+<footer>أبو عثمان AI © 2026<br>التعلم الذكي للجميع</footer>
+
+<script>
+function show(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+window.scrollTo(0,0);
+}
+function explain(){
+let t=document.getElementById('lesson').value.trim();
+document.getElementById('answer').innerHTML=t?
+'<p>تم استلام الدرس. هذه نسخة تجريبية من واجهة الشرح. سيتم ربطها بالذكاء الاصطناعي الحقيقي في الخطوة التالية.</p>':
+'<p>اكتب الدرس أولاً.</p>';
+}
+function summarize(){
+let t=document.getElementById('notes').value.trim();
+let r=document.getElementById('summaryResult');
+if(!t){r.innerText='ضع نص الدرس أولاً.';return;}
+let sentences=t.split(/[.!؟\n]/).filter(x=>x.trim());
+r.innerHTML='<h3>النص المقدم للمراجعة</h3><p>'+sentences.slice(0,3).join('. ')+'</p><p>هذه معاينة تجريبية، وسنضيف التلخيص الذكي الحقيقي عند ربط خدمة الذكاء الاصطناعي.</p>';
+}
+function checkQuiz(){
+let a=document.querySelector('input[name="q"]:checked');
+document.getElementById('quizResult').innerText=
+!a?'اختر إجابة أولاً.':
+a.value==='1'?'ممتاز! إجابة صحيحة ⭐':'حاول مرة أخرى. اقرأ السؤال جيداً.';
+}
+</script>
+</body>
+  </html>
+
